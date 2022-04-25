@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    parameters{
+        string(name:'person', defaultValue: 'Prem', description:'Your Name')
+        booleanParam(name:'isMale', defaultValue: true, description:'')
+        choice(name:'city',choices:['mumbai','pune','Delhi'],description:'')
+    }
+
+    stages {
+        stage('Parameterzied') {
+            steps {
+                sh 'echo "${person}"'
+                sh 'echo "${isMale}"'
+                sh 'echo "${city}"'
+            }
+        }
+    }
+}
